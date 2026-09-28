@@ -1,0 +1,153 @@
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname ACCESS-1
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ description SALES_DEVICES
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 000A.41D6.9910
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ description SALES_DEVICES
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 000A.F30C.0069
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+ description SALES_DEVICES
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 0005.5EC4.1468
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/4
+ description SALES_DEVICES
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 00D0.5898.AD17
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/5
+ description SALES_DEVICES
+ switchport access vlan 30
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,30,40,50,60,70,99
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/6
+ description SALES_IP_PHONE
+ switchport access vlan 30
+ switchport mode access
+ switchport voice vlan 50
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 00D0.975C.3872
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ description UPLINK_TO_DIST-A
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,30,40,50,60,70,99
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+

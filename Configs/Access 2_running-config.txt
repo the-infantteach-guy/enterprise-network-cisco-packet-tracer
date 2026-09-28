@@ -1,0 +1,187 @@
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname ACCESS-2
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ description ENGINEERING_DEVICES
+ switchport access vlan 40
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 00D0.97A9.C0C8
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ description MANAGEMENT_DEVICE
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 000A.4119.86A6
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+ description ENGINEERING_DEVICES
+ switchport access vlan 40
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 0030.F23D.D099
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/4
+ description ENGINEERING_IP_PHONE
+ switchport access vlan 40
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,30,40,50,60,70,99
+ switchport mode access
+ switchport voice vlan 50
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 0030.F23B.344C
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/5
+ description ENGINEERING_DEVICES
+ switchport access vlan 40
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/6
+ description ENGINEERING_DEVICES
+ switchport access vlan 40
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 0007.ECC2.9307
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/7
+ description ENGINEERING_DEVICES
+ switchport access vlan 40
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky 
+ switchport port-security violation restrict 
+ switchport port-security mac-address sticky 0060.3E23.94ED
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ description UPLINK_TO_DIST-A
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,30,40,50,60,70,99
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ description MANAGEMENT
+ ip address 10.10.10.3 255.255.255.0
+!
+interface Vlan30
+ description SALES
+ ip address 10.10.30.3 255.255.255.0
+!
+interface Vlan40
+ description ENGINEERING
+ ip address 10.10.40.3 255.255.255.0
+!
+interface Vlan50
+ description VOICE
+ ip address 10.10.50.3 255.255.255.0
+!
+interface Vlan60
+ description CORP-WIFI
+ ip address 10.10.60.3 255.255.255.0
+!
+interface Vlan70
+ description GUEST-WIFI
+ ip address 10.10.70.3 255.255.255.0
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+

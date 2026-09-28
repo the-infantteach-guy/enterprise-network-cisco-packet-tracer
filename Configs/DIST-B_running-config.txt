@@ -1,0 +1,182 @@
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname DIST-B
+!
+!
+no profinet
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,30,40,50,60,70,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,30,40,50,60,70,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/2
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,30,40,50,60,70,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/3
+ no switchport
+ ip address 10.0.2.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/4
+ description UPLINK_TO_ACCESS-3
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,30,40,50,60,70,99
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan10
+ mac-address 00e0.b01c.e701
+ ip address 10.10.10.3 255.255.255.0
+ standby 10 ip 10.10.10.1
+ standby 10 preempt
+!
+interface Vlan30
+ mac-address 00e0.b01c.e702
+ ip address 10.10.30.3 255.255.255.0
+ standby 30 ip 10.10.30.1
+ standby 30 preempt
+!
+interface Vlan40
+ mac-address 00e0.b01c.e703
+ ip address 10.10.40.3 255.255.255.0
+ standby 40 ip 10.10.40.1
+ standby 40 preempt
+!
+interface Vlan50
+ mac-address 00e0.b01c.e704
+ ip address 10.10.50.3 255.255.255.0
+ standby 50 ip 10.10.50.1
+ standby 50 preempt
+!
+interface Vlan60
+ mac-address 00e0.b01c.e705
+ ip address 10.10.60.3 255.255.255.0
+ standby 60 ip 10.10.60.1
+ standby 60 preempt
+!
+interface Vlan70
+ mac-address 00e0.b01c.e706
+ ip address 10.10.70.3 255.255.255.0
+ standby 70 ip 10.10.70.1
+ standby 70 preempt
+!
+router ospf 1
+ router-id 3.3.3.3
+ log-adjacency-changes
+ network 10.0.2.0 0.0.0.3 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+!
+end
+
